@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stevens Hackathon - Hourly Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;700&family=Saira+Condensed:wght@400;700&family=Saira+Extra+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Saira', sans-serif; /* Default font: Saira Regular */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #841617;
+            color: white;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-family: 'Saira Extra Condensed', sans-serif; /* Header font: Saira Extra Condensed */
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        header h2 {
+            font-family: 'Saira Condensed', sans-serif; /* Subheader font: Saira Condensed */
+            font-size: 30px;
+            font-weight: 400;
+            color: #f1f1f1;
+        }
+        header video {
+            width: 100%;
+            height: 450px; /* Adjusted height for better visual balance */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #841617;
+            margin-top: 20px;
+        }
+        .countdown-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #841617;
+            margin-top: 10px;
+        }
+        .section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            font-family: 'Saira Condensed', sans-serif;
+            color: #841617;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .flowchart {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .flowchart-step {
+            width: 180px;
+            padding: 20px;
+            background-color: #841617;
+            color: white;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .flowchart-step:hover {
+            transform: scale(1.05);
+        }
+        .flowchart-step img {
+            max-height: 50px;
+            margin-bottom: 10px;
+        }
+        .flowchart-step p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #841617;
+            color: white;
+            margin-top: 20px;
+        }
+        .help-button {
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #841617;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .help-button:hover {
+            background-color: #6e1013;
+        }
+    </style>
+      <style>
+        body {
+            font-family: 'Saira', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #841617;
+            color: white;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-family: 'Saira Extra Condensed', sans-serif;
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        header h2 {
+            font-family: 'Saira Condensed', sans-serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: #f1f1f1;
+        }
+        header video {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #841617;
+            margin-top: 20px;
+        }
+        .countdown-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #841617;
+            margin-top: 10px;
+        }
+        .section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section h2 {
+            font-family: 'Saira Condensed', sans-serif;
+            color: #841617;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .flowchart {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .flowchart-step {
+            width: 180px;
+            padding: 20px;
+            background-color: #841617;
+            color: white;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .flowchart-step:hover {
+            transform: scale(1.05);
+        }
+        .flowchart-step img {
+            max-height: 50px;
+            margin-bottom: 10px;
+        }
+        .flowchart-step p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #841617;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Accordion styles */
+        .accordion {
+            background-color: #841617;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .accordion:hover {
+            background-color: #6e1013;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: #f1f1f1;
+            overflow: hidden;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .panel img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .help-button {
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #841617;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .help-button:hover {
+            background-color: #6e1013;
+        }
+
+    </style>
+    <script>
+        // Function to toggle the accordion
+        function toggleAccordion(evt) {
+            const panel = evt.target.nextElementSibling;
+            const isOpen = panel.style.display === "block";
+            panel.style.display = isOpen ? "none" : "block";
+            evt.target.classList.toggle("active", !isOpen);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const accordions = document.querySelectorAll(".accordion");
+            accordions.forEach(function (accordion) {
+                accordion.addEventListener("click", toggleAccordion);
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const hackathonDate = new Date("2025-01-30T00:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = hackathonDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").innerHTML = "The hackathon has started!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                `${days} days ${hours} hrs ${minutes} min ${seconds} sec`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</head>
+<body onload="updateCountdown()">
+    <header>
+        <!-- Stevens Hackathon Heading -->
+        <h1>Stevens Hackathon</h1>
+      <!--
+        
+     <img src="https://imgur.com/yxM9bXy" alt="Stevens Hackathon Logo" style="width: 150px; height: auto; margin-bottom: 20px;">
+  --> 
+        <h2>Presented by College of Professional Education</h2>        
+        <!-- Video -->
+        <video autoplay muted loop>
+            <source src="https://assets.stevens.edu/mviowpldu823/50nubJiJymUxhW912YbSmD/fe70ba76021fbb039dbca4961944dba2/04776200.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </header>
+
+    <!-- Countdown message -->
+    <div class="countdown-message">
+        <p>Time to go for the Hackathon!</p>
+    </div>
+
+    <!-- Countdown timer -->
+    <div class="countdown">
+        <span id="countdown">Loading...</span>
+    </div>
+
+    <!-- Hackathon Timeline Flowchart -->
+    <div class="section">
+        <h2>Hourly Plan for Stevens CPE Hackathon (January 30-31, 2025)</h2>
+        <div class="flowchart">
+            <!-- January 30, 2025 -->
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/checkmark.png" alt="Check-In">
+                <p>January 30, 2025<br>4:00 PM - 5:00 PM<br>Check-In & Welcome Reception</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/megaphone.png" alt="Opening Ceremony">
+                <p>January 30, 2025<br>5:00 PM - 5:30 PM<br>Opening Ceremony</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/groups.png" alt="Team Formation">
+                <p>January 30, 2025<br>5:30 PM - 7:00 PM<br>Team Formation & Brainstorming</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/start.png" alt="Hackathon Start">
+                <p>January 30, 2025<br>7:00 PM<br>Hackathon Kickoff</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/pizza.png" alt="Dinner Break">
+                <p>January 30, 2025<br>7:00 PM - 8:00 PM<br>Dinner Break</p>
+            </div>
+
+            <!-- January 31, 2025 -->
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/coffee.png" alt="Snack Break">
+                <p>January 31, 2025<br>12:00 AM - 1:00 AM<br>Snack Break & Selfie Contest</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/refresh.png" alt="Hackathon Continues">
+                <p>January 31, 2025<br>1:00 AM - 3:00 AM<br>Hackathon Continues</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/exercise.png" alt="Zumba Break">
+                <p>January 31, 2025<br>3:00 AM - 3:30 AM<br>Zumba Stretch Break</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/coffee-to-go.png" alt="Quiet Hours">
+                <p>January 31, 2025<br>3:30 AM - 8:00 AM<br>Hackathon Continues (Quiet Hours)</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/pizza.png" alt="Breakfast">
+                <p>January 31, 2025<br>8:00 AM - 9:00 AM<br>Breakfast Break</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/work.png" alt="Focused Work">
+                <p>January 31, 2025<br>9:00 AM - 12:00 PM<br>Focused Work & Mentor Check-ins</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/pizza.png" alt="Lunch">
+                <p>January 31, 2025<br>12:00 PM - 1:00 PM<br>Lunch Break</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/paint-palette.png" alt="Collaborative Artwork">
+                <p>January 31, 2025<br>1:00 PM - 1:30 PM<br>Collaborative Artwork</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/groups.png" alt="Final Touches">
+                <p>January 31, 2025<br>1:30 PM - 3:30 PM<br>Final Touches & Preparation</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/trophy.png" alt="Selection of Finalists">
+                <p>January 31, 2025<br>3:30 PM - 4:00 PM<br>Selection of Finalists</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/presentation.png" alt="Project Presentations">
+                <p>January 31, 2025<br>4:00 PM - 6:00 PM<br>Project Presentations & Judging</p>
+            </div>
+            <div class="flowchart-step">
+                <img src="https://img.icons8.com/ios/50/ffffff/checkmark.png" alt="Closing Ceremony">
+                <p>January 31, 2025<br>6:00 PM - 7:00 PM<br>Closing Ceremony & Awarding of Prizes</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Topics for Hackathon</h2>
+        
+        <!-- CPE Education APP -->
+        <button class="accordion">CPE Education APP</button>
+        <div class="panel">
+            <p>Build apps to enhance education systems with features like resume-building tools, personalized learning, and better resource accessibility.</p>
+            
+        </div>
+
+        <!-- Healthcare Innovation -->
+        <button class="accordion">Healthcare Innovation</button>
+        <div class="panel">
+            <p>Develop tech-driven solutions addressing critical health issues like mental health, remote care, or chronic disease management.</p>
+        </div>
+
+        <!-- Creative Wildcard -->
+        <button class="accordion">Creative Wildcard</button>
+        <div class="panel">
+            <p>An open track for participants to explore any innovative idea, encouraging creativity and out-of-the-box thinking.</p>
+        </div>
+    </div>
+
+    <!-- Help Button -->
+    <p>please email <a href="mailto:cpe.mlk2025@gmail.com">cpe.mlk2025@gmail.com</a> for any assistance or queries.</p>
+
+    <footer>
+        <p>Powered by Stevens Institute of Technology</p>
+    </footer>
+</body>
+</html>
