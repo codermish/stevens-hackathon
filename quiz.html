@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #800000; /* Burgundy color */
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #f1f1f1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+            font-size: 18px;
+            color: #f1f1f1;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        button {
+            background-color: #b22222; /* Dark Red */
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #7b1d1d; /* Darker Red */
+        }
+
+        .message {
+            text-align: center;
+            font-size: 22px;
+            color: #28a745;
+            display: none;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .question label {
+            font-size: 18px;
+        }
+
+        .question input[type="radio"]:checked + label {
+            color: #ffddc1; /* Light peach color for checked */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Stevens - AI Quiz</h1>
+        
+        <!-- Name Input Form -->
+        <div class="name-container" id="name-container">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="user-name" placeholder="Your Name">
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Form -->
+        <form id="quiz-form" style="display:none;">
+            <input type="hidden" name="username" id="user-name-hidden">
+            
+            <!-- Questions (10 questions) -->
+            <div class="question">
+                <p>1. What does AI stand for?</p>
+                <label><input type="radio" name="q1" value="A"> A) Automated Intelligence</label><br>
+                <label><input type="radio" name="q1" value="B"> B) Artificial Intelligence</label><br>
+                <label><input type="radio" name="q1" value="C"> C) Advanced Interface</label><br>
+                <label><input type="radio" name="q1" value="D"> D) Automated Interaction</label>
+            </div>
+
+            <div class="question">
+                <p>2. Which of the following is a popular programming language used in AI development?</p>
+                <label><input type="radio" name="q2" value="A"> A) JavaScript</label><br>
+                <label><input type="radio" name="q2" value="B"> B) Python</label><br>
+                <label><input type="radio" name="q2" value="C"> C) HTML</label><br>
+                <label><input type="radio" name="q2" value="D"> D) SQL</label>
+            </div>
+
+            <div class="question">
+                <p>3. What is the main goal of Machine Learning (ML), a subset of AI?</p>
+                <label><input type="radio" name="q3" value="A"> A) To create robots</label><br>
+                <label><input type="radio" name="q3" value="B"> B) To help machines process data faster</label><br>
+                <label><input type="radio" name="q3" value="C"> C) To allow computers to learn from data and improve over time</label><br>
+                <label><input type="radio" name="q3" value="D"> D) To design computer hardware</label>
+            </div>
+
+            <div class="question">
+                <p>4. Which of these is NOT a type of machine learning?</p>
+                <label><input type="radio" name="q4" value="A"> A) Supervised Learning</label><br>
+                <label><input type="radio" name="q4" value="B"> B) Unsupervised Learning</label><br>
+                <label><input type="radio" name="q4" value="C"> C) Reinforcement Learning</label>
+                <label><input type="radio" name="q4" value="D"> D) Reflective Learning</label><br>
+
+            </div>
+
+            <div class="question">
+                <p>5. Which of these is an example of a reinforcement learning application?</p>
+                <label><input type="radio" name="q5" value="B"> B) Chess-playing AI</label><br>
+                <label><input type="radio" name="q5" value="A"> A) Spam email filter</label><br>
+                <label><input type="radio" name="q5" value="C"> C) Handwriting recognition</label><br>
+                <label><input type="radio" name="q5" value="D"> D) All of the above</label>
+            </div>
+
+            <div class="question">
+                <p>6. In AI, what does the term 'neural network' refer to?</p>
+                <label><input type="radio" name="q6" value="A"> A) A type of hardware used in AI systems</label><br>
+                <label><input type="radio" name="q6" value="B"> B) A set of algorithms modeled after the human brain</label><br>
+                <label><input type="radio" name="q6" value="C"> C) A social network that uses AI</label><br>
+                <label><input type="radio" name="q6" value="D"> D) A type of deep learning algorithm</label>
+            </div>
+
+            <div class="question">
+                <p>7. Which of these is a common application of Natural Language Processing (NLP)?</p>
+                <label><input type="radio" name="q7" value="A"> A) Image recognition</label><br>
+                <label><input type="radio" name="q7" value="B"> B) Sentiment analysis</label><br>
+                <label><input type="radio" name="q7" value="C"> C) Autonomous driving</label><br>
+                <label><input type="radio" name="q7" value="D"> D) Predicting stock prices</label>
+            </div>
+
+            <div class="question">
+                <p>8. What is the 'Turing Test' designed to assess?</p>
+                <label><input type="radio" name="q8" value="A"> A) The speed of a computer</label><br>
+                <label><input type="radio" name="q8" value="B"> B) A machine's ability to replicate human behavior</label><br>
+                <label><input type="radio" name="q8" value="C"> C) The memory capacity of AI systems</label><br>
+                <label><input type="radio" name="q8" value="D"> D) The reliability of algorithms in AI</label>
+            </div>
+
+            <div class="question">
+                <p>9. What does 'overfitting' mean in machine learning?</p>
+                <label><input type="radio" name="q9" value="A"> A) When a model is too simple</label><br>
+                <label><input type="radio" name="q9" value="B"> B) When a model performs well on the training data but poorly on new, unseen data</label><br>
+                <label><input type="radio" name="q9" value="C"> C) When a model performs equally well on all datasets</label><br>
+                <label><input type="radio" name="q9" value="D"> D) When the dataset used is too large</label>
+            </div>
+
+            <div class="question">
+                <p>10. Which company is known for developing the AI program AlphaGo?</p>
+                <label><input type="radio" name="q10" value="A"> A) IBM</label><br>
+                <label><input type="radio" name="q10" value="B"> B) Google DeepMind</label><br>
+                <label><input type="radio" name="q10" value="C"> C) Microsoft</label><br>
+                <label><input type="radio" name="q10" value="D"> D) OpenAI</label>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <!-- Success Message -->
+        <div class="message" id="success-message">Form submitted successfully!</div>
+    </div>
+
+    <script>
+        let userName = '';
+        let score = 0;
+
+        // Start Quiz Function
+        function startQuiz() {
+            userName = document.getElementById('user-name').value;
+
+            if (!userName) {
+                alert("Please enter your name.");
+                return;
+            }
+
+            // Hide the Name input and show the quiz form
+            document.getElementById('name-container').style.display = 'none';
+            document.getElementById('quiz-form').style.display = 'block';
+
+            // Set the hidden input for Name
+            document.getElementById('user-name-hidden').value = userName;
+        }
+
+        // Submit Quiz Function
+        function submitQuiz() {
+            // Correct answers for the quiz
+            const correctAnswers = ['B', 'B', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B'];
+            score = 0;
+
+            // Loop through each question and check for correct answers
+            for (let i = 0; i < correctAnswers.length; i++) {
+                const userAnswer = document.querySelector(`input[name="q${i+1}"]:checked`);
+                if (userAnswer && userAnswer.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Google Form submission URL
+            const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSflbf1DJ3F-LPbq_MCw0fwyE31CpdqRCW0ZxfJVn63JhAMxAg/formResponse'; 
+
+            // Prepare the form data
+            const formData = new FormData();
+            formData.append('entry.1175645838', userName); // Entry ID for Name field
+            formData.append('entry.223378736', score);   // Entry ID for Score field
+
+            // Send the data using Fetch API
+            fetch(formUrl, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Hide quiz form and show success message
+                    document.getElementById('quiz-form').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    alert('Failed to submit quiz. Please try again later.');
+                }
+            })
+            .catch(error => {
+                alert('Quiz Submitted!');
+            });
+        }
+    </script>
+</body>
+</html>
